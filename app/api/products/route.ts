@@ -1,19 +1,25 @@
+import { NextResponse } from "next/server";
 import { productService } from "@/lib/services/product.service";
-import { ApiResponse } from "@/lib/utils/api-response";
 
 export async function GET() {
   try {
     const products = await productService.getAllProducts();
 
-    return ApiResponse.success(
-      products,
-      "Products fetched successfully."
-    );
+    return NextResponse.json({
+      success: true,
+      data: products,
+    });
   } catch (error) {
     console.error(error);
 
-    return ApiResponse.error(
-      "Failed to fetch products."
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Failed to fetch products.",
+      },
+      {
+        status: 500,
+      }
     );
   }
 }

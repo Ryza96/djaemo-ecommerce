@@ -65,5 +65,4 @@ export interface CreateProductDTO {
   display_order?: number;
 }
 
-export interface UpdateProductDTO
-  extends Partial<CreateProductDTO> {}
+export type UpdateProductDTO = Partial<CreateProductDTO>;
