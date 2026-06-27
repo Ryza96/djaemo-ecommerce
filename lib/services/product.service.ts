@@ -5,9 +5,9 @@ import {
 } from "@/lib/types/product";
 
 export class ProductService {
-  async getAllProducts() {
-    return await productRepository.findAll();
-  }
+  async getProducts() {
+  return await productRepository.findAll();
+}
 
   async getProductById(id: string) {
     return await productRepository.findById(id);

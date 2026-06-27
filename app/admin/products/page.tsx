@@ -1,4 +1,4 @@
-import ProductTable from "@/components/admin/products/ProductTable";
+import ProductsClient from "@/components/admin/products/ProductsClient";
 import { Product } from "@/lib/types/product";
 
 async function getProducts(): Promise<Product[]> {
@@ -20,11 +20,7 @@ export default async function ProductsPage() {
 
   return (
     <main className="p-8">
-      <h1 className="mb-6 text-3xl font-bold">
-        Products
-      </h1>
-
-      <ProductTable products={products} />
+      <ProductsClient products={products} />
     </main>
   );
 }
